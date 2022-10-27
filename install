@@ -64,6 +64,7 @@ install_package \
   flex \
   gdb \
   net-tools \
+  cmake \
   atop
 pip3 install powerline-status
 fix_user_dirs
