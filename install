@@ -48,7 +48,7 @@ create_link i3 .config/i3
 for x in $(ls bin); do
     create_link bin/$x bin/$x
 done
-install_package curl wget sysstat git vim-gtk3 cscope make gcc silversearcher-ag python3-pip
+install_package curl wget sysstat git vim-gtk3 cscope make gcc silversearcher-ag python3-pip ccache bison flex
 pip3 install powerline-status
 fix_user_dirs
 install_rust
