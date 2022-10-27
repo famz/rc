@@ -65,6 +65,7 @@ install_package \
   gdb \
   net-tools \
   cmake \
+  rsync \
   atop
 pip3 install powerline-status
 fix_user_dirs
