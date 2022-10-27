@@ -27,7 +27,9 @@ install_package()
 
 fix_user_dirs()
 {
-    echo todo
+    (cd $HOME; mkdir -p down doc music pic video)
+    create_link user-dirs.dirs .config/user-dirs.dirs
+    xdg-user-dirs-update || true
 }
 
 install_rust()
@@ -41,6 +43,8 @@ create_link bin bin
 create_link gitconfig .gitconfig
 create_link gitignore .gitignore_global
 create_link bashrc .bashrc
+create_link i3 .config/i3
+
 for x in $(ls bin); do
     create_link bin/$x bin/$x
 done
