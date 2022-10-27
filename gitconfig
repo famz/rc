@@ -1,12 +1,37 @@
+[core]
+    editor = vi
+    excludesfile = ~/.gitignore_global
+[user]
+    name = Fam Zheng
+    email = fam.zheng@bytedance.com
+
 [alias]
     st = status
-    co = checkout
-    ci = commit
-    ca = commit -a
     cp = cherry-pick
-    rb = rebase
-    rbi = rebase -i
     br = branch
-[user]
-	name = Fam Zheng
-	email = fam.zheng@bytedance.com
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase -i
+    rbim = rebase -i master
+    ci = commit -v
+    cia = commit --amend  -v
+    cis = commit -s -v
+    ca = commit -a -v
+    cas = commit -a -s -v
+    caa = commit -a --amend -v
+    co = checkout
+    sm = submodule
+
+[sendemail]
+    from = Fam Zheng <fam.zheng@bytedance.com>
+    smtpuser =
+    smtpserver = "/usr/bin/msmtp"
+    smtpencryption = tls
+    chainreplyto = false
+    confirm = auto
+
+[gitpublishprofile "linux"]
+    base = master
+    to = linux-kernel@vger.kernel.org
+    cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null

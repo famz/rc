@@ -19,7 +19,7 @@ install_package()
             cmd="brew install"
             ;;
         Linux)
-            cmd="apt-get install -y"
+            cmd="sudo apt-get install -y"
             ;;
     esac
     $cmd $@
@@ -32,6 +32,7 @@ fix_user_dirs()
 
 install_rust()
 {
+    if test -d $HOME/.cargo; then echo rust already installed, skip.; return 0; fi
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
@@ -39,6 +40,7 @@ create_link vimrc .vim
 create_link bin bin
 create_link gitconfig .gitconfig
 create_link gitignore .gitignore_global
+create_link bashrc .bashrc
 install_package curl wget sysstat git vim-gtk3 cscope make gcc silversearcher-ag python3-pip
 pip3 install powerline-status
 fix_user_dirs
