@@ -41,6 +41,9 @@ create_link bin bin
 create_link gitconfig .gitconfig
 create_link gitignore .gitignore_global
 create_link bashrc .bashrc
+for x in $(ls bin); do
+    create_link bin/$x bin/$x
+done
 install_package curl wget sysstat git vim-gtk3 cscope make gcc silversearcher-ag python3-pip
 pip3 install powerline-status
 fix_user_dirs

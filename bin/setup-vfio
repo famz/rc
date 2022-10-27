@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+set -x
+
+dev=$1
+cd /sys/bus/pci/devices/${dev}
+vendor=$(cat vendor | cut -c 3-)
+device=$(cat device | cut -c 3-)
+if test -e driver/unbind; then echo ${dev} | sudo tee driver/unbind > /dev/null; fi
+echo $vendor $device | sudo tee /sys/bus/pci/drivers/vfio-pci/new_id >/dev/null
