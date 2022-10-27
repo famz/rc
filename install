@@ -66,6 +66,7 @@ install_package \
   net-tools \
   cmake \
   rsync \
+  ninja-build \
   atop
 pip3 install powerline-status
 fix_user_dirs
