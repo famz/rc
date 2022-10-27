@@ -1,0 +1,12 @@
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    ca = commit -a
+    cp = cherry-pick
+    rb = rebase
+    rbi = rebase -i
+    br = branch
+[user]
+	name = Fam Zheng
+	email = fam.zheng@bytedance.com

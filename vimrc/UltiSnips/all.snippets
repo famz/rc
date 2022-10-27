@@ -1,0 +1,18 @@
+snippet sob
+`#!/bin/bash
+echo "Signed-off-by: Fam Zheng <$(git config user.email)>"
+`
+endsnippet
+
+snippet rev
+`#!/bin/bash
+echo "Reviewed-by: Fam Zheng <$(git config user.email)>"
+`
+endsnippet
+
+snippet ack
+`#!/bin/bash
+echo "Acked-by: Fam Zheng <$(git config user.email)>"
+`
+endsnippet
+

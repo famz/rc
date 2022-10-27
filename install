@@ -1,0 +1,44 @@
+#!/bin/bash
+set -e
+
+create_link()
+{
+    if ! test -e $HOME/$2; then
+        echo "Creating sym link $2 to $1"
+        ln -s $PWD/$1 $HOME/$2
+    else
+        echo "$2 already exists, skip"
+    fi
+}
+
+
+install_package()
+{
+    case $(uname) in
+        Darwin)
+            cmd="brew install"
+            ;;
+        Linux)
+            cmd="apt-get install -y"
+            ;;
+    esac
+    $cmd $@
+}
+
+fix_user_dirs()
+{
+}
+
+install_rust()
+{
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+}
+
+create_link vimrc .vim
+create_link bin bin
+create_link gitconfig .gitconfig
+create_link gitignore .gitignore_global
+install_package curl wget sysstat git vim-gtk3 cscope make gcc silversearcher-ag python3-pip
+pip3 install powerline-status
+fix_user_dirs
+install_rust
