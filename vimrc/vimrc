@@ -17,21 +17,19 @@ set undofile
 set list
 set listchars=tab:>-
 silent !mkdir -p ~/.cache/vimundo
-set modeline
 
 " Cursor shape
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-let g:netrw_dirhistmax = 0
 let mapleader = ","
 
 if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window (for an alternative on Windows, see simalt below).
   set lines=999 columns=999
-  set guifont=Terminus\ 14
+  "set guifont=Terminus\ 12
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
@@ -51,6 +49,7 @@ Plug 'farmergreg/vim-lastplace'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
+Plug 'mattn/emmet-vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -93,7 +92,6 @@ python3 del powerline_setup
 Plug 'airblade/vim-gitgutter'
 "Plug 'tpope/vim-fugitive'
 
-" Colorscheme
 Plug 'morhetz/gruvbox'
 
 Plug 'rust-lang/rust.vim'
@@ -107,10 +105,11 @@ nnoremap <silent> <leader>g :vimgrep "\C\<<C-R><C-W>\>"/\C %<CR>:call Highlighti
 " Map global search to EasyGrep command
 nnoremap <silent> <leader>G :Ggrep "\<<C-R><C-W>\>"<CR>:cw<CR>
 nnoremap <leader>? :Ggrep 
+nnoremap <f5> :make run<CR>
+inoremap <f5> <ESC>:make run<CR>
 
 Plug 'posva/vim-vue'
 
-" Automatically set directory to your project's root based on a known dir/file.
 Plug 'dylanaraps/root.vim'
 " For root plugin
 let g:root#auto = 1
@@ -143,7 +142,7 @@ autocmd FileType make set shiftwidth=8 | set tabstop=8
 autocmd Filetype c,cpp,rust set cino+=(0
 
 function SensibleIndent()
-    if getcwd() =~ "/linux" || getcwd() =~ "brimstone"
+    if getcwd() =~ "/linux"
         set noet
         set ts=8
         set sw=8
@@ -152,37 +151,7 @@ endfunction
 autocmd BufEnter *.[ch] call SensibleIndent()
 autocmd BufEnter *.[ch]pp call SensibleIndent()
 
-" For gotags
-
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
-
 colorscheme gruvbox
 
 set tabstop=4 shiftwidth=4 expandtab
-autocmd filetype javascript,typescript,yaml,vue setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd filetype html,css,javascript,javascriptreact,typescript,yaml,vue,typescriptreact setlocal tabstop=2 shiftwidth=2 expandtab
