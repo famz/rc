@@ -27,6 +27,7 @@ install_package()
 
 fix_user_dirs()
 {
+    echo todo
 }
 
 install_rust()
