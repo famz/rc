@@ -3,8 +3,9 @@ set -e
 
 create_link()
 {
-    if ! test -e $HOME/$2; then
+    if ! test -e $HOME/$2 && ! test -h $HOME/$2; then
         echo "Creating sym link $2 to $1"
+        mkdir -p $(dirname $HOME/$2)
         ln -s $PWD/$1 $HOME/$2
     else
         echo "$2 already exists, skip"
@@ -29,7 +30,7 @@ fix_user_dirs()
 {
     (cd $HOME; mkdir -p down doc music pic video)
     create_link user-dirs.dirs .config/user-dirs.dirs
-    xdg-user-dirs-update || true
+    if type xdg-user-dirs-update &>/dev/null; then xdg-user-dirs-update; fi
 }
 
 install_rust()
@@ -39,6 +40,7 @@ install_rust()
 }
 
 create_link vimrc .vim
+create_link tmux.conf .tmux.conf
 create_link bin bin
 create_link gitconfig .gitconfig
 create_link gitignore .gitignore_global
