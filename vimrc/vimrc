@@ -90,7 +90,7 @@ python3 powerline_setup()
 python3 del powerline_setup
 
 Plug 'airblade/vim-gitgutter'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 Plug 'morhetz/gruvbox'
 

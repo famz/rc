@@ -71,6 +71,7 @@ install_package \
   ninja-build \
   bpftrace \
   bash-completion \
+  pkg-config \
   atop
 fix_user_dirs
 install_rust
