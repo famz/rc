@@ -70,6 +70,7 @@ install_package \
   rsync \
   ninja-build \
   bpftrace \
+  bash-completion \
   atop
 fix_user_dirs
 install_rust
