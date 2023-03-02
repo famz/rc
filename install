@@ -39,7 +39,7 @@ install_rust()
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
-create_link vimrc .vim
+create_link vim .vim
 create_link tmux.conf .tmux.conf
 create_link bin bin
 create_link gitconfig .gitconfig
