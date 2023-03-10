@@ -3,7 +3,7 @@
     excludesfile = ~/.gitignore_global
 [user]
     name = Fam Zheng
-    email = fam.zheng@bytedance.com
+    email = fam@euphon.net
 
 [alias]
     st = status
@@ -24,7 +24,7 @@
     sm = submodule
 
 [sendemail]
-    from = Fam Zheng <fam.zheng@bytedance.com>
+    from = Fam Zheng <fam@euphon.net>
     smtpuser =
     smtpserver = "/usr/bin/msmtp"
     smtpencryption = tls
