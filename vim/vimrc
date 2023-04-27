@@ -141,6 +141,7 @@ autocmd FileType yaml set shiftwidth=2 | set tabstop=4
 autocmd FileType markdown set shiftwidth=4 | set tabstop=4
 autocmd FileType make set shiftwidth=8 | set tabstop=8
 autocmd Filetype c,cpp,rust set cino+=(0
+autocmd Filetype rust nmap <F8> :make test<CR>
 
 function SensibleIndent()
     if getcwd() =~ "/linux"
