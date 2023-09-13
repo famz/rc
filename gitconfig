@@ -8,6 +8,8 @@
 [alias]
     st = status
     cp = cherry-pick
+    cpc = cherry-pick --continue
+    cpa = cherry-pick --abort
     br = branch
     rb = rebase
     rba = rebase --abort
@@ -35,7 +37,9 @@
     base = master
     to = linux-kernel@vger.kernel.org
     cccmd = scripts/get_maintainer.pl --noroles --norolestats --nogit --nogit-fallback 2>/dev/null
+
 [credential]
 	helper = store
+
 [pull]
 	ff = only
