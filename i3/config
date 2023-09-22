@@ -30,6 +30,8 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #00f0f0
+
 # start a terminal
 bindsym $mod+Return exec konsole
 bindsym $mod+Shift+Return exec xterm
@@ -212,5 +214,6 @@ exec blueman-applet
 exec dunst
 exec feh --bg-scale ~/pic/bg.png
 exec dropbox start
+exec $HOME/.screenlayout/default.sh
 #exec mate-power-manager
 #exec cbatticon
