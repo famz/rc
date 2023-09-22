@@ -3,7 +3,6 @@
     excludesfile = ~/.gitignore_global
 [user]
     name = Fam Zheng
-    email = fam@euphon.net
 
 [alias]
     st = status
