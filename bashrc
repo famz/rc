@@ -213,3 +213,7 @@ export WASMER_DIR="/home/fam/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 . "$HOME/.cargo/env"
+
+SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+export SSH_AUTH_SOCK
+ssh-agent -a $SSH_AUTH_SOCK &>/dev/null

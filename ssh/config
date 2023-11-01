@@ -1,3 +1,4 @@
+AddKeysToAgent yes
 ConnectTimeout 5
 HostKeyAlgorithms +ssh-rsa
 PubkeyAcceptedKeyTypes +ssh-rsa
