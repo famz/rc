@@ -1,0 +1,245 @@
+ConnectTimeout 5
+HostKeyAlgorithms +ssh-rsa
+PubkeyAcceptedKeyTypes +ssh-rsa
+GSSAPIAuthentication yes
+GSSAPIDelegateCredentials no
+StrictHostKeyChecking no
+UserKnownHostsFile /dev/null
+
+Host jump-hl
+    user fam.zheng
+    HostName jump-proxy-hl.byted.org
+
+Host jump-lf
+    user fam.zheng
+    HostName jump-proxy-lf.byted.org
+
+Host jump-sg
+    user fam.zheng
+    HostName jump-proxy-sg.byted.org
+
+Host jump-us
+    user fam.zheng
+    HostName jump-proxy-us.byted.org
+
+Host jump-uk
+    user fam.zheng
+    HostName jump-uk.byted.org
+
+Host jump-eu
+    user fam.zheng
+    HostName 10.106.176.19
+
+    #Host 10.*.*.*
+    #    User root
+    #    ProxyCommand ssh -qW %h:%p jump-uk
+
+host fdbd:dc01:*
+    proxyjump jump-hl
+
+host fdbd:dc71:*
+    proxyjump jump-eu
+
+Host xiongchun
+    HostName 10.19.28.229
+    User root
+    ProxyCommand ssh -qW %h:%p jump-hl
+
+Host liangma
+    HostName 10.124.129.128
+    User root
+    ProxyCommand ssh -qW %h:%p jump-us
+
+Host fam
+    HostName 10.124.129.66
+    User root
+    ProxyCommand ssh -qW %h:%p jump-uk
+
+Host ksvc
+    HostName 10.124.129.13
+    User root
+    ProxyCommand ssh -qW %h:%p jump-uk
+
+Host 10.124.129.120
+    HostName 10.124.129.120
+    User root
+    ProxyCommand ssh -qW %h:%p jump-uk
+    LocalForward 8080 127.0.0.1:8080
+
+Host dev
+    HostName 10.131.251.42
+    User root
+    ProxyCommand ssh -qW %h:%p jump-hl
+
+Host kerneldevtools
+    HostName 10.198.252.217
+    User root
+    ProxyCommand ssh -qW %h:%p jump-hl
+
+Host devbox
+    HostName 10.248.133.81
+    User fam.zheng
+
+Host vm
+    HostName 127.0.0.1
+    Port 10022
+    User root
+
+Host 10.*
+    StrictHostKeyChecking no
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+
+Host *
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+
+host cs
+    hostname 192.168.0.115
+    user fam
+
+host dell
+    hostname 192.168.0.242
+    user fam
+
+host kdt
+    hostname 10.198.254.95
+    user root
+
+host sysrepo-uk
+    hostname 10.198.252.93
+    user root
+
+host cpc
+    hostname cpc.euphon.net
+    user fam
+    port 2222
+
+host cpc-dell
+    hostname 192.168.0.242
+    user fam
+    proxyjump cpc
+
+host mg
+    hostname 10.129.113.131
+    user root
+
+Host lab
+    hostname 10.81.35.6
+    user fam
+
+Host klab
+    hostname 192.168.123.1
+    user fam
+    proxyjump lab
+    localforward 12443 192.168.123.202:443
+    RemoteForward 12322 code.byted.org:22
+    RemoteForward 12323 sysrepo.byted.org:22
+
+host h0
+    hostname 192.168.123.117
+    user root
+    proxyjump lab
+    identityfile ~/.ssh/klab/id_rsa
+    localforward 5900 127.0.0.1:5900
+
+host v0
+    hostname 192.168.123.116
+    user root
+    proxyjump lab
+    identityfile ~/.ssh/klab/id_rsa
+    localforward 5900 127.0.0.1:5900
+
+host dpdk1
+    hostname 192.168.200.3
+    proxyjump lab
+    user root
+
+host dpdk2
+    hostname 192.168.200.3
+    proxyjump lab
+    user root
+
+host k3os
+    hostname 192.168.251.102
+    user rancher
+
+host debvm
+    hostname 192.168.251.101
+    user fam
+    localforward 8080 127.0.0.0:8080
+
+host fedvm
+    hostname 192.168.251.104
+    user fam
+
+host ubuntuvm
+    hostname 192.168.251.100
+    user fam
+
+host archvm
+    hostname 192.168.251.107
+    user fam
+
+host lb
+    hostname 192.168.123.149
+    user fam
+    proxyjump lab
+    RemoteForward 12322 code.byted.org:22
+    RemoteForward 12323 sysrepo.byted.org:22
+    localforward 8443 192.168.123.202:443
+    localforward 8080 localhost:8080
+
+host lu
+    hostname 192.168.123.127
+    user fam
+    proxyjump lab
+    RemoteForward 12322 code.byted.org:22
+    RemoteForward 12323 sysrepo.byted.org:22
+    localforward 8443 192.168.123.202:443
+
+host sev
+    proxyjump lb
+    hostname 10.81.32.41
+    localforward 5900 127.0.0.1:5900
+    localforward 5901 127.0.0.1:5901
+    user fam
+
+host db
+    hostname 192.168.0.242
+    user root
+
+host t420
+    hostname 192.168.0.253
+    user root
+
+host bdl
+    hostname 192.168.0.124
+    user fam
+
+host wg-server
+    hostname 192.168.122.88
+    user root
+
+host wg-client
+    hostname 192.168.122.4
+    user root
+
+host ie-s
+    hostname fdbd:dc71:1:371::36
+    proxyjump jump-eu
+    user root
+
+host klab-birvana
+    hostname 192.168.123.104
+    user fam
+    proxyjump lab
+    localforward 3389 127.0.0.1:3389
+host l1
+    hostname 127.0.0.1
+    user root
+    port 10022
+host l2
+    hostname 127.0.0.1
+    user root
+    port 10023
