@@ -216,4 +216,4 @@ export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 export SSH_AUTH_SOCK
-ssh-agent -a $SSH_AUTH_SOCK &>/dev/null
+ssh-agent -a $SSH_AUTH_SOCK &>/dev/null || true
