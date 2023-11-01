@@ -111,10 +111,9 @@ inoremap <f5> <ESC>:make run<CR>
 
 Plug 'posva/vim-vue'
 
-Plug 'dylanaraps/root.vim'
-" For root plugin
-let g:root#auto = 1
-let g:root#echo = 0
+" Plug 'dylanaraps/root.vim'
+" let g:root#auto = 1
+" let g:root#echo = 0
 
 " Initialize plugin system
 call plug#end()
