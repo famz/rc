@@ -74,6 +74,7 @@ install_package \
   bpftrace \
   bash-completion \
   pkg-config \
+  bc \
   atop
 fix_user_dirs
 install_rust
