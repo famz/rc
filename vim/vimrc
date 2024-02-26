@@ -97,15 +97,21 @@ Plug 'morhetz/gruvbox'
 
 Plug 'rust-lang/rust.vim'
 
-Plug 'dkprice/vim-easygrep'
-let g:EasyGrepJumpToMatch=0
-function! Highlighting()
-  let @/ = '\<'.expand('<cword>').'\>'
-endfunction
 nnoremap <silent> <leader>g :vimgrep "\C\<<C-R><C-W>\>"/\C %<CR>:call Highlighting()<CR>:cw<CR>:silent set hlsearch<CR>
-" Map global search to EasyGrep command
-nnoremap <silent> <leader>G :Ggrep "\<<C-R><C-W>\>"<CR>:cw<CR>
-nnoremap <leader>? :Ggrep 
+
+" Plug 'dkprice/vim-easygrep'
+" let g:EasyGrepJumpToMatch=0
+" function! Highlighting()
+"   let @/ = '\<'.expand('<cword>').'\>'
+" endfunction
+" " Map global search to EasyGrep command
+" nnoremap <silent> <leader>G :Ggrep "\<<C-R><C-W>\>"<CR>:cw<CR>
+" nnoremap <leader>? :Ggrep 
+
+Plug 'gabesoft/vim-ags'
+let g:ags_agcontext = 0
+nnoremap <Leader>G :Ags<Space><C-R>=expand('<cword>')<CR><CR>
+
 nnoremap <f5> :make run<CR>
 inoremap <f5> <ESC>:make run<CR>
 
