@@ -79,17 +79,6 @@ vnoremap <C-c> "+y
 
 Plug 'majutsushi/tagbar'
 
-python3 <<EOF
-try:
-    import powerline.vim
-except:
-    import os
-    os.system("pip3 install powerline-status")
-EOF
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
