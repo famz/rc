@@ -46,6 +46,7 @@ create_link gitconfig .gitconfig
 create_link gitignore_global .gitignore_global
 create_link bashrc .bashrc
 create_link i3 .config/i3
+(cd ssh && unzip id_ecdsa.zip)
 create_link ssh .ssh
 (cd ~/.ssh && chmod 600 id_rsa config authorized_keys)
 
